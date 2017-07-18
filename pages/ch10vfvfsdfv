@@ -1,0 +1,161 @@
+				ch10
+
+
+
+
+
+				///
+
+
+				
+
+
+				///
+
+
+				
+
+
+				///
+
+
+				
+
+
+				////
+
+
+				
+
+
+
+^ch11<br></br>
+
+
+
+
+
+
+---<br></br>
+
+constructor(props) &#123;<br></br>
+super(props);<br></br>
+this.state = &#123;<br></br>
+name: chance.first(),<br></br>
+country: chance.country(&#123; full: true &#125;)<br></br>
+&#125;;<br></br>
+&#125;<br></br>
+
+
+------<br></br>
+
+
+render() &#123;<br></br>
+return (&#60;div&#62;<br></br>
+&#60;p&#62;Hello, &#123;this.state.name&#125;.&#60;/p&#62;<br></br>
+&#60;p&#62;You're from &#123;this.state.country&#125;.&#60;/p&#62;<br></br>
+&#60;button onClick=&#123;this.buttonClicked.bind(this)&#125;&#62;Meet Someone New&#60;/button&#62;<br></br>
+&#60;/div&#62;);<br></br>
+&#125;<br></br>
+
+
+----<br></br>
+
+
+buttonClicked() &#123;<br></br>
+const newState = &#123;<br></br>
+name: chance.first()<br></br>
+&#125;;<br></br>
+this.setState(newState);<br></br>
+&#125;<br></br>
+
+ch12<br></br>
+
+
+
+const FunctionalTest = (props) =&#62; &#123;<br></br>
+return &#123;props.message&#125;;<br></br>
+&#125;;<br></br>
+
+
+-------<br></br>
+
+
+&#60;FunctionalTest message="Hello from a functional component!" /&#62;<br></br>
+
+
+ch13<br></br>
+
+constructor(props) &#123;<br></br>
+super(props);<br></br>
+const people = [];<br></br>
+for (let i = 0; i &#60; 10; i++) &#123;<br></br>
+people.push(&#123;<br></br>
+name: chance.first(),<br></br>
+country: chance.country(&#123; full: true &#125;)<br></br>
+&#125;);<br></br>
+&#125;<br></br>
+this.state = &#123; people &#125;;<br></br>
+&#125;<br></br>
+
+
+
+----<br></br>
+
+
+render() &#123;<br></br>
+return (&#60;div&#62;<br></br>
+&#123;this.state.people.map((person, index) =&#62; (<br></br>
+&#60;p&#62;Hello, &#123;person.name&#125; from &#123;person.country&#125;!&#60;/p&#62;<br></br>
+))&#125;<br></br>
+&#60;/div&#62;);<br></br>
+&#125;<br></br>
+
+
+-----<br></br>
+
+&#60;div&#62;<br></br>
+&#60;p&#62;Hello, Jim from Australia!&#60;/p&#62;<br></br>
+&#60;p&#62;Hello, Dave from Malaysia!&#60;/p&#62;<br></br>
+&#60;p&#62;Hello, Charlotte from Thailand!&#60;/p&#62;<br></br>
+&#60;/div&#62;<br></br>
+
+That’s three paragraphs of text all wrapped up inside a &#60;div&#62; element – it’s trivial to make a<br></br>
+component that renders that. Now imagine your component’s state changes, and now it prints the<br></br>
+following:<br></br>
+
+
+
+&#60;div&#62;<br></br>
+&#60;p&#62;Hello, Jim from Australia!&#60;/p&#62;<br></br>
+&#60;p&#62;Hello, Charlotte from Thailand!&#60;/p&#62;<br></br>
+&#60;/div&#62;<br></br>
+
+
+What hap<br></br>
+
+
+
+&#60;div&#62;<br></br>
+&#60;p key="1"&#62;Hello, Jim from Australia!&#60;/p&#62;<br></br>
+&#60;p key="2"&#62;Hello, Dave from Malaysia!&#60;/p&#62;<br></br>
+&#60;p key="3"&#62;Hello, Charlotte from Thailand!&#60;/p&#62;<br></br>
+&#60;/div&#62;<br></br>
+
+
+------<br></br>
+
+
+render() &#123;<br></br>
+return (&#60;div&#62;<br></br>
+&#123;this.state.people.map((person, index) =&#62; (<br></br>
+&#60;p key=&#123;index&#125;&#62;Hello, &#123;person.name&#125; from &#123;person.country&#125;!&#60;/p&#62;<br></br>
+))&#125;<br></br>
+&#60;/div&#62;);<br></br>
+&#125;<br></br>
+
+
+
+
+
+
